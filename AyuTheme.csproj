@@ -1,0 +1,66 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net472</TargetFramework>
+		<RootNamespace>AyuTheme</RootNamespace>
+		<AssemblyName>AyuTheme</AssemblyName>
+		<Nullable>enable</Nullable>
+		<LangVersion>14</LangVersion>
+
+		<!-- VSIX settings -->
+		<VSSDKBuildToolsAutoSetup>true</VSSDKBuildToolsAutoSetup>
+		<VsixDeployOnDebug>true</VsixDeployOnDebug>
+		<!-- *** CHANGED: No assembly to process, so disable auto-generation *** -->
+		<GeneratePkgDefFile>false</GeneratePkgDefFile>
+		<IncludeAssemblyInVSIXContainer>false</IncludeAssemblyInVSIXContainer>
+		<IncludeDebugSymbolsInVSIXContainer>false</IncludeDebugSymbolsInVSIXContainer>
+		<IncludeDebugSymbolsInLocalVSIXDeployment>false</IncludeDebugSymbolsInLocalVSIXDeployment>
+		<CopyBuildOutputToOutputDirectory>false</CopyBuildOutputToOutputDirectory>
+		<CopyOutputSymbolsToOutputDirectory>false</CopyOutputSymbolsToOutputDirectory>
+
+		<!-- Debugger: launch the Experimental Instance -->
+		<StartAction>Program</StartAction>
+		<StartProgram>$(DevEnvDir)devenv.exe</StartProgram>
+		<StartArguments>/rootsuffix Exp</StartArguments>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectCapability Include="CreateVsixContainer" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.VisualStudio.SDK" Version="17.14.40265" ExcludeAssets="runtime" />
+		<PackageReference Include="Microsoft.VSSDK.BuildTools" Version="18.5.40034" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="source.extension.vsixmanifest">
+			<SubType>Designer</SubType>
+		</None>
+		<!-- *** ADDED: Include the manually generated .pkgdef *** -->
+		<Content Include="AyuTheme.pkgdef">
+			<IncludeInVSIX>true</IncludeInVSIX>
+		</Content>
+		<Content Include="LICENSE.txt">
+			<IncludeInVSIX>true</IncludeInVSIX>
+		</Content>
+		<Content Include="NOTICE.txt">
+			<IncludeInVSIX>true</IncludeInVSIX>
+		</Content>
+		<Content Include="README.md">
+			<IncludeInVSIX>true</IncludeInVSIX>
+		</Content>
+		<Content Include="CHANGELOG.md">
+			<IncludeInVSIX>true</IncludeInVSIX>
+		</Content>
+		<Content Include="images\icon.png">
+			<IncludeInVSIX>true</IncludeInVSIX>
+		</Content>
+		<Content Include="images\header.png">
+			<IncludeInVSIX>true</IncludeInVSIX>
+		</Content>
+	</ItemGroup>
+	<Target Name="RegeneratePkgDef" BeforeTargets="GetVsixSourceItems">
+		<Exec Command="powershell -ExecutionPolicy Bypass -File &quot;$(MSBuildProjectDirectory)\build.ps1&quot;" />
+	</Target>
+</Project>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Id="AyuTheme.VS2026.adnanrp" Version="1.0.0" Language="en-US" Publisher="adnanrp" />
+    <DisplayName>Ayu Theme for Visual Studio 2026</DisplayName>
+    <Description xml:space="preserve">Ayu Dark, Ayu Mirage, and Ayu Light — ported natively for Visual Studio 2026 with full Fluent theme token coverage.</Description>
+    <MoreInfo>https://github.com/adnanrahmanpoor/ayu-vs2026</MoreInfo>
+    <License>LICENSE.txt</License>
+    <GettingStartedGuide>README.md</GettingStartedGuide>
+    <ReleaseNotes>CHANGELOG.md</ReleaseNotes>
+    <Icon>images\icon.png</Icon>
+    <PreviewImage>images\header.png</PreviewImage>
+    <Tags>ayu, theme, dark, light, mirage, color theme, syntax highlighting</Tags>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+  </Installation>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,)" />
+  </Prerequisites>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" Version="[4.7.2,)" d:Source="Manual" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsTheme" Path="ayu_dark.vstheme" d:Source="File" />
+    <Asset Type="Microsoft.VisualStudio.VsTheme" Path="ayu_mirage.vstheme" d:Source="File" />
+    <Asset Type="Microsoft.VisualStudio.VsTheme" Path="ayu_light.vstheme" d:Source="File" />
+  </Assets>
+</PackageManifest>

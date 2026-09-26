@@ -1,0 +1,24 @@
+Ayu Theme for Visual Studio 2026
+
+This product is a port of the original "ayu" theme.
+
+Original work:
+  Name: ayu
+  Author: Ike Kuruvilla (dempfi)
+  Repository: https://github.com/dempfi/ayu
+  License: MIT
+
+Original Visual Studio port:
+  Name: ayu theme for Visual Studio
+  Repository: https://github.com/ayu-theme/visual-studio
+  License: MIT
+
+This Visual Studio 2026 port:
+  Author: Adnan Rahmanpoor
+  Repository: https://github.com/adnanrahmanpoor/ayu-vs2026
+  License: MIT
+
+The color palette, theme names (Ayu Dark, Ayu Mirage, Ayu Light), and the
+overall design are derived from the original ayu theme by Ike Kuruvilla.
+This port adapts the theme to the Visual Studio 2026 Fluent theme token system
+and is not affiliated with or endorsed by the original author.
